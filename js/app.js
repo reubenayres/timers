@@ -18,16 +18,17 @@ console.log("timers and stopwatches");
 // hh:mm:ss instead of just a number of seconds
 
 const timer = {
+  intervalID: null, 
   timeElapsed: 0,
   start: function() {
     console.log(this.timeElapsed);
-    const intervalID = setInterval(() => {
+    this.intervalID = setInterval(() => {
       this.timeElapsed++
       console.log(this.timeElapsed);
-      if(this.timeElapsed === 10) {
-        clearInterval(intervalID)
-      }
     }, 1000)    
+  }, 
+  stop: function() {
+    clearInterval(this.intervalID)
   }
 }
 
