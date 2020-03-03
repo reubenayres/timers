@@ -11,6 +11,12 @@ console.log("timers and stopwatches");
 // and the rest of the code should be in a start() method.
 // you should be able to start the timer from your console timer.start()
 
+// instead of timer automatically stopping at 10, make stop() method
+// that stops the timer
+
+// extra challenge: Without using Date, output should be formatted like 
+// hh:mm:ss instead of just a number of seconds
+
 const timer = {
   timeElapsed: 0,
   start: function() {
