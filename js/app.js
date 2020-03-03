@@ -11,13 +11,19 @@ console.log("timers and stopwatches");
 // and the rest of the code should be in a start() method.
 // you should be able to start the timer from your console timer.start()
 
-let timeElapsed = 0
-console.log(timeElapsed);
-const intervalID = setInterval(() => {
-  timeElapsed++
-  console.log(timeElapsed);
-  if(timeElapsed === 10) {
-    clearInterval(intervalID)
+const timer = {
+  timeElapsed: 0,
+  start: function() {
+    console.log(this.timeElapsed);
+    const intervalID = setInterval(() => {
+      this.timeElapsed++
+      console.log(this.timeElapsed);
+      if(this.timeElapsed === 10) {
+        clearInterval(intervalID)
+      }
+    }, 1000)    
   }
-}, 1000)
+}
+
+
 
