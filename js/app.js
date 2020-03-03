@@ -6,6 +6,11 @@ console.log("timers and stopwatches");
 // research clearInterval and make it so that the counter counts to 
 // 10 and then stops
 
+// move everything out of the global scope into an object called timer
+// timeElapsed should be a property on that object
+// and the rest of the code should be in a start() method.
+// you should be able to start the timer from your console timer.start()
+
 let timeElapsed = 0
 console.log(timeElapsed);
 const intervalID = setInterval(() => {
@@ -15,3 +20,4 @@ const intervalID = setInterval(() => {
     clearInterval(intervalID)
   }
 }, 1000)
+
