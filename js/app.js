@@ -18,17 +18,37 @@ console.log("timers and stopwatches");
 // hh:mm:ss instead of just a number of seconds
 
 const timer = {
+  /// these properties are the STATE of your application
+  // anything you need to KEEP TRACK OF goes here
+  // anything here is accessible in every method on this obj
   intervalID: null, 
-  timeElapsed: 0,
+  timeElapsed: 359,
+
   start: function() {
-    console.log(this.timeElapsed);
+    this.printTime()
     this.intervalID = setInterval(() => {
       this.timeElapsed++
-      console.log(this.timeElapsed);
+      this.printTime()
     }, 1000)    
   }, 
   stop: function() {
     clearInterval(this.intervalID)
+  }, 
+  printTime: function() {
+    const seconds = this.timeElapsed
+
+    let mm = Math.floor(seconds/60)
+    // console.log(mm); //
+
+    let ss = seconds - (mm * 60)
+
+    if(ss < 10) {
+      ss = "0" + ss  // type coercion -- will convert to string
+    }
+
+    console.log(`${mm}:${ss}`);
+
+    // hh:mm:ss
   }
 }
 
