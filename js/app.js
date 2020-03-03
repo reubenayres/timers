@@ -8,7 +8,10 @@ console.log("timers and stopwatches");
 
 let timeElapsed = 0
 console.log(timeElapsed);
-setInterval(() => {
+const intervalID = setInterval(() => {
   timeElapsed++
   console.log(timeElapsed);
+  if(timeElapsed === 10) {
+    clearInterval(intervalID)
+  }
 }, 1000)
