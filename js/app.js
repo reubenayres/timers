@@ -26,7 +26,11 @@ const timer = {
 
   start: function() {
     this.printTime()
-    this.intervalID = setInterval(() => {
+    console.log("here is this in start() in the timer object");
+    console.log(this);
+    this.intervalID = setInterval(function() {
+      console.log("here is this in the callback in setInterval");
+      console.log(this);
       this.timeElapsed++
       this.printTime()
     }, 1000)    
@@ -51,6 +55,26 @@ const timer = {
     // hh:mm:ss
   }
 }
+
+const ogre = {
+  hitpoints: 10,
+  attack(opponent) {
+    // op --- 
+  }
+}
+
+
+
+const adventurer  = {
+  hitpoints: 10,
+  // .....
+  attack(opponent) {
+
+  }
+}
+
+ogre.attack(adventurer)
+
 
 
 
