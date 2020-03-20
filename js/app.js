@@ -22,15 +22,11 @@ const timer = {
   // anything you need to KEEP TRACK OF goes here
   // anything here is accessible in every method on this obj
   intervalID: null, 
-  timeElapsed: 899,
+  timeElapsed: 0,
 
   start: function() {
     this.printTime()
-    console.log("here is this in start() in the timer object");
-    console.log(this);
-    this.intervalID = setInterval(function() {
-      console.log("here is this in the callback in setInterval");
-      console.log(this);
+    this.intervalID = setInterval(() => {
       this.timeElapsed++
       this.printTime()
     }, 1000)    
