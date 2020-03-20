@@ -22,7 +22,7 @@ const timer = {
   // anything you need to KEEP TRACK OF goes here
   // anything here is accessible in every method on this obj
   intervalID: null, 
-  timeElapsed: 359,
+  timeElapsed: 899,
 
   start: function() {
     this.printTime()
@@ -46,11 +46,29 @@ const timer = {
       ss = "0" + ss  // type coercion -- will convert to string
     }
 
-    console.log(`${mm}:${ss}`);
+    const timeElement = document.getElementById('time')
+    if(mm >= 10) {
+      timeElement.style.color = "red"
+    }
+    timeElement.innerText = `${mm}:${ss}`
+    if(mm === 15) {
+      document.body.style.backgroundColor = "black";
+      document.body.style.color = "red";
+      const stopMsg = document.createElement('h1')
+      stopMsg.style.fontSize = "4em"
+      stopMsg.innerText = "STOP NOW"
+      document.body.appendChild(stopMsg)
+      clearInterval(this.intervalID)
+    }
+    
 
     // hh:mm:ss
   }
 }
 
 
+
+document.getElementsByTagName('button')[0].addEventListener('click', () => {
+  timer.start()
+})
 
